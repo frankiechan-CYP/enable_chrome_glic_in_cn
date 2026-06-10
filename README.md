@@ -2,7 +2,7 @@
 
 一键激活 Google Chrome 浏览器在中国地区的全新 Gemini AI 侧边栏 (GLIC) 功能。支持 Windows 和 macOS 平台，提供全自动的配置脚本。
 
-* 🌐 **项目发布主页** (已托管在 GitHub Pages): `https://<your-username>.github.io/enable_chrome_glic_in_cn/`
+* 🌐 **项目发布主页** (已托管在 GitHub Pages): `https://frankiechan-CYP.github.io/enable_chrome_glic_in_cn/`
 
 ---
 
