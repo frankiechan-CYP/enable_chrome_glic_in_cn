@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>启用 Chrome GLIC AI 侧边栏 (中国地区激活工具)</title>
+    <meta name="description" content="一键激活 Chrome 浏览器中的 Gemini GLIC AI 侧边栏功能。支持 Windows 和 macOS 平台，提供一键自动化脚本。">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="badge">🔥 100% 自动配置工具</div>
+            <h1>Enable Chrome GLIC in CN</h1>
+            <p class="subtitle">中国地区一键激活 Google Chrome 浏览器全新 Gemini AI 侧边栏 (GLIC) 功能</p>
+        </header>
+        
+        <div class="main-grid">
+            <!-- Principles Card -->
+            <section class="card">
+                <h2 class="card-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    技术原理 (Technical Principles)
+                </h2>
+                <p>Google Chrome 的 AI 侧边栏功能 (GLIC) 在部分地区被默认禁用。本项目通过修改 Chrome 的全局配置文件 <code>Local State</code> 中的以下字段，强制激活 GLIC 资格：</p>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>字段 (JSON Key)</th>
+                                <th>修改值 (Value)</th>
+                                <th>作用说明 (Description)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>variations_country</code></td>
+                                <td><span class="val-string">"us"</span></td>
+                                <td>强制设置浏览器区域为美国 (US)</td>
+                            </tr>
+                            <tr>
+                                <td><code>variations_permanent_consistency_country</code></td>
+                                <td><span class="val-array">["1", "us"]</span></td>
+                                <td>永久一致性地区设置为美国 (US)</td>
+                            </tr>
+                            <tr>
+                                <td><code>is_glic_eligible</code></td>
+                                <td><span class="val-bool">true</span></td>
+                                <td>对所有用户配置文件启用 GLIC 体验资格</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Guide Card -->
+            <section class="card">
+                <h2 class="card-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    使用指南 (Usage Guides)
+                </h2>
+                
+                <div class="tabs-container">
+                    <button class="tab-btn active" onclick="switchTab('win')">Windows 平台</button>
+                    <button class="tab-btn" onclick="switchTab('mac')">macOS 平台</button>
+                </div>
+                
+                <!-- Windows Content -->
+                <div id="win-content" class="tab-content active">
+                    <ol class="steps">
+                        <li>
+                            <h4>下载/准备脚本</h4>
+                            <p>进入本仓库的 <code>scripts/</code> 目录，拷贝或下载以下两个文件到同一个目录下：</p>
+                            <div class="download-section">
+                                <a href="scripts/win_enable_glic.bat" class="btn btn-primary" download>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                    下载 win_enable_glic.bat (引导器)
+                                </a>
+                                <a href="scripts/win_enable_glic.ps1" class="btn btn-secondary" download>
+                                    下载 win_enable_glic.ps1 (核心脚本)
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <h4>一键运行</h4>
+                            <p>鼠标右键点击 <code>win_enable_glic.bat</code>，选择 <strong>“以管理员身份运行”</strong> (或者直接双击运行)。</p>
+                        </li>
+                        <li>
+                            <h4>完成修改</h4>
+                            <p>脚本会自动为您强行关闭正在运行的 Chrome 进程，并在自动备份原配置后完成修改。提示成功后重新打开 Chrome 即可。</p>
+                        </li>
+                    </ol>
+                    
+                    <div class="alert">
+                        <div class="alert-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        </div>
+                        <div class="alert-content">
+                            <h4>关于安全性与备份</h4>
+                            <p>修改前，脚本会自动在 Chrome 配置文件夹中生成一个 <code>Local State.backup.时间戳</code> 格式的备份文件。如遇任何异常，可随时恢复备份。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- macOS Content -->
+                <div id="mac-content" class="tab-content">
+                    <ol class="steps">
+                        <li>
+                            <h4>准备脚本文件</h4>
+                            <p>确保您已将本仓库的 <code>scripts/</code> 文件夹下载到本地，或直接下载 macOS 专属脚本：</p>
+                            <div class="download-section">
+                                <a href="scripts/mac_enable_glic.sh" class="btn btn-primary" download>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                    下载 mac_enable_glic.sh (引导器)
+                                </a>
+                                <a href="scripts/mac_enable_glic.py" class="btn btn-secondary" download>
+                                    下载 mac_enable_glic.py (核心脚本)
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <h4>终端执行</h4>
+                            <p>打开 Mac 的“终端 (Terminal)”，切换到脚本所在目录，执行以下命令：</p>
+                            <pre><code id="bash-cmd">chmod +x mac_enable_glic.sh && ./mac_enable_glic.sh</code><button class="copy-btn" onclick="copyText('bash-cmd')">复制</button></pre>
+                        </li>
+                        <li>
+                            <h4>重启 Chrome</h4>
+                            <p>脚本运行完成后，重新启动 Chrome 浏览器，点击侧边栏即可享用 GLIC 功能。</p>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <p>由 <a href="https://github.com/your-username" target="_blank">您的 Github 账号</a> 维护发行 | 依托 GitHub Pages 免费托管</p>
+        </footer>
+    </div>
+    
+    <script>
+        function switchTab(platform) {
+            // Remove active classes
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Add active classes
+            if (platform === 'win') {
+                document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
+                document.getElementById('win-content').classList.add('active');
+            } else {
+                document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
+                document.getElementById('mac-content').classList.add('active');
+            }
+        }
+        
+        function copyText(id) {
+            const code = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.querySelector(`#${id} + .copy-btn`);
+                const originalText = btn.innerText;
+                btn.innerText = '已复制!';
+                btn.style.background = 'rgba(52, 211, 153, 0.2)';
+                btn.style.color = '#34d399';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
